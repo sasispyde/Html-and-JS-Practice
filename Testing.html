@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function loadXMLDoc()
+{
+var url="add.json";
+var u;
+if(window.XMLHttpRequest)
+{
+u=new XMLHttpRequest();
+}
+else
+{
+u=new ActiveXObject("Microsoft.XMLHTTP");
+ 
+}
+u.onreadystatechange=function()
+{
+if(u.readyState==4 && u.status==200)
+{
+  var y=u.responseText;
+  var json = JSON.parse(y);
+  for(var x in json){
+  console.log(json[x].id);
+  console.log(json[x].userId);
+  console.log(json[x].title);
+  console.log(json[x].body);
+}
+}
+}
+u.open("GET",url,true);
+u.send();
+}
+</script>
+</head>
+<body>
+<button type="button" onclick="loadXMLDoc()">Submit</button>                   
+<div id="c"> </div>
+</body>
+</html>

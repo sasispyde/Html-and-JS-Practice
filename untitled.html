@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="Task1style.css">
+	<title>Form</title>
+</head>
+<body><div id="r" style="text-align: center;">
+	<form method="post" action="test.html">
+		<label>Username </label><input class="sas" type="text" id="Name" max="20"><br><br>
+		<p id="user"></p>
+		<label>Email </label><input class="sas" type="text" id ="Mail"><br><br>
+		<p id="user1"></p>
+		<label>Phone Number </label><input class="sas" type="text" id="phonenumber" onkeypress="return event.charCode >= 48 && event.charCode <= 57  " maxlength="10"><br><br>
+		<p id="user2"></p>
+		<label>DOB </label><input class="sas" type="date" id="dob" min="1998-01-01" style="width: 168px;"><br><br>
+		<p id="user4"></p>
+		<label>Gender</label><br> 
+<!-- 			<input type="radio" name="gender" value="male"> Male<br>
+  			<input type="radio" name="gender" value="female"> Female<br>
+  			<input type="radio" name="gender" value="other"> Other<br> -->
+  	<!-- 		<span style="float :left; margin-left: 50px;">Male</span><input class="sas" style="float: left;margin-left: 50px;" type="radio" name="gender" value="Male"><br><br>
+			<span style="float :left; margin-left: 50px;">Female</span><input class="sas" style="float: left;margin-left: 36px;" type="radio" name="gender" value="Female">  <br><br>
+			<span style="float :left; margin-left: 50px;"> Other</span><input class="sas" style="float: left;margin-left: 48px;"" type="radio" name="gender" value="Other"><br><br>
+			<p id="user3"></p> -->
+			<span style="float :left; margin-left: 50px;">Male</span><input  id="o" style="float: left;margin-left: 50px;" type="radio" name="gender" value="Male"><br><br>
+			<span style="float :left; margin-left: 50px;">Female</span><input id="o1" style="float: left;margin-left: 36px;" type="radio" name="gender" value="Female">  <br><br>
+			<span style="float :left; margin-left: 50px;"> Other</span><input id="o2" style="float: left;margin-left: 48px;"" type="radio" name="gender" value="Other"><br><br>
+			<p id="user3"></p>
+
+		<label>Skills </label><br><br>
+<!-- 			<input type="checkbox" name="PHP" id="PHP" checked>PHP<br><br>
+			<input type="checkbox" name="Javascript" id="PHP">JavaScript<br><br>	
+			<input type="checkbox" name="AngulerJs" id="PHP">Anguler<br><br>
+			<input type="checkbox" name="Java" id="PHP">Java<br><br> -->
+			<span style="float :left; margin-left: 50px;">PHP</span><input class="sas" type="checkbox" name="pref[]" class="PHP" style="float: left;margin-left: 85px;"><br><br>
+			<span style="float :left; margin-left: 50px;">JavaScript</span><input class="sas" type="checkbox" name="pref[]" class="PHP" style="float: left;margin-left: 48px;"><br><br>
+			<span style="float :left; margin-left: 50px;">Anguler</span><input class="sas" type="checkbox" name="pref[]" class="PHP" style="float: left;margin-left: 64px;"><br><br>
+			<span style="float :left; margin-left: 50px;">Java</span><input class="sas" type="checkbox" name="pref[]" class="PHP" style="float: left;margin-left: 88px;"><br><br>
+			<p id="user7"></p>
+
+		<label>Address </label><textarea id="Address" style="width: 168px;" ></textarea><br><br><p id="user5"></p>
+		<br>
+		<label>Country </label>
+		<select style="width: 168px;" id="sel"><br><br>
+		  <option value="">Country</option>
+		  <option value="India">India</option>
+		  <option value="Japan">Japan</option>
+		  <option value="China">China</option>
+		</select><br><br><p id="user6"></p>
+		<br><br>
+		<input  style="width:70px;
+					  display: inline-block;
+					  border-radius: 25px;
+					  text-align: center;
+					  width: 75px;
+					  height: 35px;
+					  background-color:#26261F;
+					  color: white;
+  					  border: 2px solid #4CAF50;
+					}
+" type="submit" name="submit" onclick="validator();validator1();validator2();validator3();validator4();demo();deno();checkForm(this.form)" 
+onsubmit="return checkForm(this); event.preventDefault();">
+	</form>
+</div>
+<script type="text/javascript">
+	var date=false;
+// function nameCheck(){
+// 			var name=document.getElementById("Name");
+// 			if(name.value.length < 0){
+// 				alert(name);
+// 				document.getElementById("user").innerHTML ="";
+// 			}
+// 		    if(alpha(name)){
+// 					document.getElementById("user").innerHTML ="";
+// 		    }else{
+// 		    	return false;
+// 		    }
+// }
+	function validator(){
+			var name=document.getElementById("Name");
+		    if(alpha(name)){
+					document.getElementById("user").innerHTML ="";
+		    }else{
+		    	return false;
+		    }
+		}
+		function validator1(){
+			var mail=document.getElementById("Mail");
+
+		    if(Email(mail)){
+				document.getElementById("user1").innerHTML = "";
+		    }
+		    else{
+		    	return false;
+		    }
+		}
+		function validator2(){
+			var Phone=document.getElementById("phonenumber");
+		    if(Mobile(Phone)){
+		    	document.getElementById("user2").innerHTML = "";
+		    }
+		    else{
+		    	return false;
+		    }
+		}
+		function validator3(){
+		    var valueDate = document.getElementById("dob").value;
+				if (!valueDate)
+					{
+					   	document.getElementById("user4").innerHTML = "Please Enter your Date Of Birth";
+					   	stick(event);
+					    return false;
+					}
+					else{
+						document.getElementById("user4").innerHTML = "";
+						date=true;
+					}
+		}
+		function validator4(){
+		       var content = document.getElementById("Address").value;
+				   if(content.length<1)
+				   {
+					   	document.getElementById("user5").innerHTML = "Please Enter Your Address";
+					   	stick(event);
+				        return true;
+				   }
+				   else
+				   {
+				   		document.getElementById("user5").innerHTML = "";
+				        return false;
+				   }
+		}
+		function deno(){
+		       var x = document.getElementById("sel").selectedIndex;
+  			   var y=document.getElementsByTagName("option")[x].value;
+  			   if(y==""){
+  			   		document.getElementById("user6").innerHTML = "Please select the country";
+  			   		stick(event);
+
+  			   }
+  			   else{
+  			   		document.getElementById("user6").innerHTML = "";
+  			   }
+
+		}
+		 
+		function alpha(y)
+		    {
+		    	var nameRX = /^[a-zA-Z ]{2,}$/;
+				 if(y.value.match(nameRX)){
+				 	document.getElementById("user").innerHTML = "";
+				 	return true;
+				 }
+				 else{
+				 	if(y.value==""){
+					document.getElementById("user").innerHTML = "Please enter your Name";
+					stick(event);
+				}
+					else{
+					document.getElementById("user").innerHTML = "Please enter Valid Name";
+					stick(event);
+
+				}
+					return false;
+				 }
+			}
+				function Email(y)
+		    {
+		    	var emailRX = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+				 if(y.value.match(emailRX)){
+				 	return true;
+				 }
+				 else{
+				 	if(y.value==""){
+					document.getElementById("user1").innerHTML = "Please enter your email";
+					stick(event);
+				}
+				else{
+					document.getElementById("user1").innerHTML = "Please enter Valid email";
+				}
+					return false;
+				}
+			}
+			function Mobile(y)
+		    {
+		    	var mobRX = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+				 if(y.value.match(mobRX)){
+				 	return true;
+				 }
+				 else{
+				 	if(y.value==""){
+					document.getElementById("user2").innerHTML = "Please enter your number";
+					stick(event);
+				}
+				else{
+					document.getElementById("user2").innerHTML = "Please enter valid number";
+				}
+					return false;
+				 }
+			}
+			function demo(){
+						var x=document.getElementById("o").checked;
+						var y=document.getElementById("o1").checked;
+						var z=document.getElementById("o2").checked;
+						if(x || y ||z){
+							document.getElementById("user3").innerHTML="";
+							return true;
+						}
+						else{
+							document.getElementById("user3").innerHTML="Please select the Gender";
+							stick(event);
+						}
+					}
+				function stick(event){
+					event.preventDefault();
+                	event.stopImmediatePropagation();
+                	return false;
+				}
+			// function ValidateForm(form){
+			// 		if ( ( form.gender[0].checked == false ) && ( form.gender[1].checked == false ) ) 
+			// 		{
+			// 		document.getElementById("user3").innerHTML = "Please select Your gender";
+			// 		}
+			// 		else{
+			// 			document.getElementById("user3").innerHTML = "";
+			// 			return true;
+			// 		}
+			// 	}
+				function checkArray(form, arrayName)
+					{
+					  var retval = new Array();
+					  for(var i=0; i < form.elements.length; i++) {
+					    var el = form.elements[i];
+					    if(el.type == "checkbox" && el.name == arrayName && el.checked) {
+					      retval.push(el.value);
+					    }
+					  }
+					  return retval;
+					}
+				function checkForm(form)
+					{
+					  var itemsChecked = checkArray(form, "pref[]");
+					  if(itemsChecked.length == 0) {
+					  	document.getElementById("user7").innerHTML="Please select your Skills";
+					  	stick(event);
+					  }
+					  else{
+					  	document.getElementById("user7").innerHTML="";
+					  }
+					}
+				// function sub(){
+				// 		var name=document.getElementById("Name").value;
+				// 		var content = document.getElementById("Address").value;
+				//     	var valueDate = document.getElementById("dob").value;
+				//     	var Phone=document.getElementById("phonenumber");
+				// 		var mail=document.getElementById("Mail");
+				// 		var valueDate = document.getElementById("dob").value;
+				// 		var x = document.getElementById("sel").selectedIndex;
+  		// 	   			var y=document.getElementsByTagName("option")[x].value;
+				// 		if (name=="" || mail=="" || Phone=="" || date )
+				// 		      { 
+				// 		      	 alert("Fill the form");
+				// 		         // error.innerHTML = 'Please Fill all fields. <br> * means mandatory';
+				// 		         event.preventDefault();    
+				// 		         return false; 
+				// 		      }     
+				// 		      return true; 
+				// 		};
+						document.addEventListener('invalid', (function () {
+							  return function (e) {
+							    e.preventDefault();
+							    document.getElementById("sel").focus();
+							  };
+							})(), true);
+
+	</script>
+</body>
+</html>

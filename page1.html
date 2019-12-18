@@ -1,0 +1,86 @@
+<?php
+   session_start();
+   $subArr = array("Tamil","English","Maths","Science","Social");
+   $name=$_SESSION["name"];
+   $tempArr = $_SESSION['marks'];
+   $intArray = array_map(
+   function($value) { return (int)$value; },
+   $tempArr
+);
+   $keypair = array_combine($subArr,$intArray);
+   // var_dump($keypair);
+   $passMark = 75;
+   $newline = "<br>";
+   // echo $newline.
+
+   $total =0;
+   $average=0;
+   $totalSubject=count($intArray);
+   $total=array_sum($intArray);
+   $average=$total/$totalSubject;
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Result</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+           <link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+       </head>
+<body>
+<div class="container">
+<br><br><br>
+<h3 class="text-center">Student Result</h3>
+<table class="table">
+ <thead class="thead-dark">
+ <tr>
+ <td scope="row">
+ <?php echo $name;?>  
+ </td>
+ </tr>
+
+   <tr>
+     <th >Subject</th>
+     <th >Marks</th>
+     <th >Grade</th>
+   </tr>
+ </thead>
+ <tbody>
+ <?php foreach ($keypair as $key => $value){ ?>
+  <tr>
+     <td class="label"><?php echo $key; ?></td>
+     <td><?php echo $value; ?></td>
+     <td>
+      <?php if($value<$passMark){
+      echo "fail";
+      }
+      else{
+      echo "pass";
+      }
+
+      ?>
+     </td>
+
+   </tr>
+
+<?php } ?>
+ </tbody>
+</table>
+</div>
+
+<div class="container">
+<?php echo "Total:".$total; ?>
+<br>
+<?php echo "Average:".$average; ?>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+Send a message
+
+
+

@@ -1,0 +1,109 @@
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+function checkArray(form, arrayName)
+{
+  var retval = new Array();
+  for(var i=0; i < form.elements.length; i++) {
+    var el = form.elements[i];
+    if(el.type == "checkbox" && el.name == arrayName && el.checked) {
+      retval.push(el.value);
+    }
+  }
+  return retval;
+}
+function checkForm(form)
+{
+  var itemsChecked = checkArray(form, "pref[]");
+  if(itemsChecked.length == 0) {
+    alert("Please select the Skills");
+  }
+  return false;
+}
+</script>
+<title></title>
+</head>
+<body>
+<form method="POST" action="" onsubmit="return checkForm4(this);">
+<fieldset>
+<legend>Example: checkbox array</legend>
+<p>Which of the following pastimes do you enjoy?</p>
+<span>
+<label><input type="checkbox" name="pref[]"> Art /Antiques</label><br>
+<label><input type="checkbox" name="pref[]"> Camping/Hiking</label><br>
+<label><input type="checkbox" name="pref[]"> Cooking</label><br>
+<label><input type="checkbox" name="pref[]"> Computer games</label><br>
+</span>
+<span><input type="submit" onclick="checkForm(this.form)"></span>
+</fieldset>
+</form>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		var a=true;
+		function change(){
+			a=false;
+		}
+		function chgAction(){
+			if(a==false){
+		  		document.getElementById("sasi").setAttribute("action", "Ruff.html");
+		  	}
+		  	else{
+		  		document.getElementById("sasi").setAttribute("action", "map.html")
+		  	}
+		}
+	</script>
+	<title></title>
+</head>
+<body>
+<form action="" method="get" id="sasi">	
+<input type="submit" onclick="chgAction()">
+ </form>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	body{
+		text-align: center;
+	}
+</style>
+	<title>Success</title>
+</head>
+<body>
+<h1>Registration Successful</h1>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function demo(){
+		var x=document.getElementById("o").checked;
+		var y=document.getElementById("o1").checked;
+		var z=document.getElementById("o2").checked;
+		if(x || y ||z){
+			document.getElementById("ss").innerHTML="Valid";
+		}
+		else{
+			document.getElementById("ss").innerHTML="In Valid";
+		}
+	}
+	</script>
+	<title>Validation</title>
+</head>
+<body>
+	<input type="radio" id="o" name="male">male<br>
+	<input type="radio" id="o1" name="Female">female<br>
+	<input type="radio" id="o2" name="Other">ohter<br>
+	<p id="ss"></p>
+	<input type="submit" onclick="demo()">
+</body>
+</html> -->

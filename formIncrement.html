@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+<h2 id="myH2">m</h2>
+
+
+<button onclick="myFunction()">Insert a paragraph</button>
+<button onclick="myFunction2()">delete an element</button>
+
+
+
+
+<script>
+function myFunction() {
+	var i=1;
+	i++;
+	for(i=1;i<=i;i++){
+		var h = document.getElementById("myH2").innerHTML="<span><input type=<q></q> <input type=<q></q>  <input type=<q></q> </span> <p></p>";
+	}
+	  // h.insertAdjacentHTML("afterend", "<span><input type=<q></q> <input type=<q></q>  <input type=<q></q> </span> <p></p>");
+	  // h.innerHTML("<span><input type=<q></q> <input type=<q></q>  <input type=<q></q> </span> <p></p>");
+	}
+	function myFunction2() {
+  var list = document.getElementsByTagName("myH2");
+  list.removeChild(list.childNodes[0]);
+}
+</script>
+
+</body>
+</html>

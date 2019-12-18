@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+
+	function change(){
+		  	$('#content').load("page3.html");
+		  }
+	function changee(){
+		  	$('#content').load("page.html");
+		  }
+	function change3(){
+			 $('#content').load("page1.html");
+		  }
+	$(document).ready(function(){
+	   
+	   $('#content').load("page1.html");
+
+	});
+
+	</script>	
+</head>
+<body>
+
+	<div>
+	<a href="#"  id="A" onclick="change3()">HOME</a>
+	<a href="#" id="A1" onclick="changee()">FIRST</a>
+	<a href="#"  id="A2" onclick="change()">SECOND</a>
+	</div>	
+	<div id="content"></div>
+
+</body>
+</html>

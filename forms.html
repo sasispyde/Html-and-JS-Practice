@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forms</title>
+</head>
+<body style="text-align: center;">
+		<div>
+			<form action="map.html" target="0" method="get" name="firstform" style="text-align: center;">
+				<fieldset>
+					<legend>BASIC FORM :</legend>
+					<span>NAME :</span><input type="text"><br><br>
+					<span>AGE :</span><input type="number"><br><br>
+					<span>ADDRESS :</span><textarea rows="5" cols="5"></textarea><br><br>
+					<span>MALE</span><input type="radio" name="gender" value="male">
+				  	<span>FEMALE</span><input type="radio" name="gender" value="female">
+				  	<span>OTHER</span><input type="radio" name="gender" value="other"><br><br>
+				  	<span>CAR U HAVE :</span>&nbsp<select name="cars">
+						  <option value="volvo">Volvo</option>
+						  <option value="saab">Saab</option>
+						  <option value="fiat">Fiat</option>
+						  <option value="audi">Audi</option>
+					</select><br><br>
+				  	<input type="submit">
+			  	</fieldset>
+			</form>
+			<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+		  		<fieldset>
+		    		<legend>Personal information:</legend>
+		    		First name:<br>
+		    		<input type="text" name="firstname" value="Mickey">
+		    		<br>
+		    		Last name:<br>
+		    		<input type="text" name="lastname" value="Mouse">
+		    		<br><br>
+		    		<input type="range" id="a" name="a" value="50">100 +
+ 					<input type="number" id="b" name="b" value="50">=
+  					<output name="x" for="a b"></output>
+  					<br><br>
+		    		<input type="submit" value="Submit">
+		  		</fieldset>
+			</form>
+			<p>Example for DATALIST</p>
+			<form action="/action_page.php">
+				  <input list="browsers">
+				  <datalist id="browsers">
+					    <option value="Internet Explorer">
+					    <option value="Firefox">
+					    <option value="Chrome">
+					    <option value="Opera">
+					    <option value="Safari">
+				  </datalist> 
+			</form>
+	</div>
+</body>
+</html>

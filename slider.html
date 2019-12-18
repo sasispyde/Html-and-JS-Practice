@@ -1,0 +1,203 @@
+<!-- <!doctype html>
+<html lang = "en">
+   <head>
+      <style type="text/css">
+         body{
+            text-align: center;
+            text-decoration: none;
+         }
+      </style>
+      <meta charset = "utf-8">
+      <title>Slider</title>
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
+      <!-- Javascript -->
+<!--       <script>
+         $(function() {
+            $( ".slider" ).slider({
+               range:true,
+               min: 0,
+               max: 100,
+               values: [ 0, 18 ],
+               slide: function( event, ui ) {
+                  $( "#age" ).val(ui.values[ 1 ] );
+               }
+            });
+            $( "#age" ).val($( ".slider" ).slider( "values", 1 ) );
+         });
+      </script>
+   </head>
+
+   <body>
+   <div id="de">
+      <form>
+      <p>
+         <label for = "age">Age :</label>
+         <input type = "text" id = "age" 
+            style = "border:0; color:#b9cd6d; font-weight:bold;">
+      </p>
+      </form>
+      <div class = "slider" style="width: 300px;margin:auto;"></div>
+   </div>
+   </body>
+</html>
+ --> -->
+
+
+
+
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <script type="text/javascript">
+      // (function() {
+      //    function toJSONString( form ) {
+      //       var obj = {};
+      //       var elements = form.querySelectorAll( "input, select, textarea" );
+      //       for( var i = 0; i < elements.length; ++i ) {
+      //          var element = elements[i];
+      //          var name = element.name;
+      //          var value = element.value;
+      //          var r=element.name.gender;
+      //          if( name ) {
+      //             if(name=="gender"){
+      //                var gen="";
+      //                var x=document.getElementById("o").checked;
+      //                var y=document.getElementById("o1").checked;
+      //                var z=document.getElementById("o2").checked;
+      //             if(x){
+      //                gen="male";
+      //                obj[ name.gender ] = gen;
+      //             }
+      //             if(y){
+      //                gen="Female";
+      //                obj[ name.gender ] = gen;
+      //             }
+      //             if(z){
+      //                gen="Other";
+      //                obj[ name.gender ] = gen;                  }
+      //             }
+      //             else{
+      //                obj[ name ] = value;
+      //             }
+      //          }
+      //       }
+      //       console.log(obj);
+      //       return JSON.stringify( obj );
+      //    }
+
+      //    document.addEventListener( "DOMContentLoaded", function() {
+      //       var form = document.getElementById( "test" );
+      //       var output = document.getElementById( "output" );
+      //       form.addEventListener( "submit", function( e ) {
+      //          e.preventDefault();
+      //          var json = toJSONString( this );
+      //          output.innerHTML = json;
+
+      //       }, false);
+
+      //    });
+      // })();
+
+      var retval = new Array();
+      function checkArray(form, arrayName)
+               {
+                 // var retval = new Array();
+                 for(var i=0; i < form.elements.length; i++) {
+                   var el = form.elements[i];
+                   if(el.type == "checkbox" && el.name == arrayName && el.checked) {
+                     retval.push(el.value);
+                   }
+                 }
+                 return retval;
+               }
+      function checkForm(form)
+               {
+                 var itemsChecked = checkArray(form, "pref[]");
+               }
+
+      function f(){
+               var a=document.getElementById("Name").value;
+
+               var b=document.getElementById("Mail").value;
+
+               var h=document.getElementById("dob").value;
+
+               var c=document.getElementById("phonenumber").value;
+
+               var d=document.getElementById("o1").value;
+
+               var e=document.getElementById("sas").value;
+
+               var f=document.getElementById("Add").value;
+
+               var g=document.getElementById("sel").value;
+
+               var x=document.getElementById("o").checked;
+               var y=document.getElementById("o1").checked;
+               var z=document.getElementById("o2").checked;
+
+               var gen=""
+               if(x){
+                  gen="male";
+               }
+                if(y){
+                  gen="Female";
+               }
+                if(z){
+                  gen="other";
+               }
+
+               var obj = {};
+               obj['Username'] = a;
+               obj['Email'] = b;
+               obj['PhoneNumber'] = c;
+               obj['Gender'] = d;
+               obj['Skills'] = e;
+               obj['Address'] = f;
+               obj['Country'] = g;
+               obj['Date-Of-Birth'] = h;
+
+               var obj = { Username : a ,Email : b, phoneNumber :c ,Gender :gen, Skills :retval, Address :f,Country :g ,DateOfBirth : h};
+               var t=JSON.stringify(obj);
+               var result = JSON.parse(t);
+               console.log(result);
+            }
+
+   </script>
+    <title></title>
+ </head>
+ <body>
+      <form method="GET">
+            <label>Username </label><input class="sas" type="text" id="Name" max="20" name="name" required><br><br>
+            <label>Email </label><input class="sas" type="text" id ="Mail" name="Email"><br><br>
+            <label>Phone Number </label><input class="sas" type="text" id="phonenumber" onkeypress="return event.charCode >= 48 && event.charCode <= 57  " maxlength="10" name="phoneNumber"><br><br>
+            <label>DOB </label><input class="sas" type="text" id="dob" min="1998-01-01" style="width: 168px;"><br><br>
+            <label>Gender</label><br> 
+               <span style="float :left; margin-left: 50px;">Male</span><input  id="o" style="float: left;margin-left: 50px;" type="radio" name="gender" value="Male"><br><br>
+               <span style="float :left; margin-left: 50px;">Female</span><input id="o1" style="float: left;margin-left: 36px;" type="radio" name="gender" value="Female">  <br><br>
+               <span style="float :left; margin-left: 50px;"> Other</span><input id="o2" style="float: left;margin-left: 48px;"" type="radio" name="gender" value="Other"><br><br>
+            <label>Skills </label><br><br>
+               <span style="float :left; margin-left: 50px;">PHP</span><input class="sas" type="checkbox" name="pref[]" value="php" class="PHP" id="sas" style="float: left;margin-left: 85px;"><br><br>
+               <span style="float :left; margin-left: 50px;">JavaScript</span><input class="sas" type="checkbox" name="pref[]" value="javascript" id="sas" class="PHP" style="float: left;margin-left: 48px;"><br><br>
+               <span style="float :left; margin-left: 50px;">Anguler</span><input class="sas" type="checkbox" name="pref[]" value="Anguler" class="PHP" id="sas" style="float: left;margin-left: 64px;"><br><br>
+               <span style="float :left; margin-left: 50px;">Java</span><input class="sas" type="checkbox" name="pref[]" value="Java" class="PHP" id="sas" style="float: left;margin-left: 88px;"><br><br>
+            <label>Address </label><textarea id="Add" name="address" style="width: 168px;" ></textarea><br><br><p id="user5"></p>
+            <br>
+            <label>Country </label>
+            <select style="width: 168px;" id="sel" name="country" required>
+              <option value="">Country</option>
+              <option value="India">India</option>
+              <option value="Japan">Japan</option>
+              <option value="China">China</option>
+            </select><br><br><p id="user6"></p>
+            <br><br>
+              <input type="submit" onclick="checkForm(this.form);f();" 
+onsubmit="return checkForm(this);"/>      
+      </form>  
+      <pre id="output"></pre>    
+ </body>
+ </html>
